@@ -8,11 +8,11 @@ public class App {
      * Shows USE help
      */
     public static void appHelp() {
-        System.out.println("Lucky Tickets \n" +
+        System.out.println("Number series \n" +
                 "Use : \n" +
-                "Enter file with algorithm ID: App [path] \n");
+                "Builds series of number's squares that are less " +
+                "than [value]: App [value] \n");
     }
-
 
     public static void main(String[] args) {
         if (args.length == 1) {
