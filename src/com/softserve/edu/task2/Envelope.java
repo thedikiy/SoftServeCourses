@@ -31,19 +31,20 @@ public class Envelope {
 
     /**
      * Compares this. envelope with input one
+     *
      * @param envelope
-     * @return  <code> 1 </code> if this. envelope is bigger
-     *          <code> -1 </code> if this. envelope is smaller
-     *          <code> 0 </code> other case
+     * @return <code> 1 </code> if this. envelope is bigger
+     * <code> -1 </code> if this. envelope is smaller
+     * <code> 0 </code> other case
      */
     public int compare(Envelope envelope) {
         if (envelope == null)
             throw new IllegalArgumentException("Object can't be null");
-        if (this.getWidth() > envelope.getWidth() && this.getHeight() > envelope
-                .getHeight())
+        if (this.getWidth() > envelope.getWidth()
+                && this.getHeight() > envelope.getHeight())
             return 1;
-        if (this.getWidth() < envelope.getWidth() && this.getHeight() < envelope
-                .getHeight())
+        if (this.getWidth() < envelope.getWidth()
+                && this.getHeight() < envelope.getHeight())
             return -1;
         return 0;
     }

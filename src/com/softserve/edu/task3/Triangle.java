@@ -12,6 +12,7 @@ public class Triangle {
 
     /**
      * Creates Triangle with name and three sides
+     *
      * @param name
      * @param side1
      * @param side2
@@ -23,7 +24,8 @@ public class Triangle {
                 || Double.compare(side2, 0) <= 0
                 || Double.compare(side3, 0) <= 0)
             throw new IllegalArgumentException("Value must be positive");
-        if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1)
+        if (side1 + side2 <= side3 || side1 + side3 <= side2
+                || side2 + side3 <= side1)
             throw new IllegalArgumentException("Sum of two sides must be " +
                     "larger than third one");
         this.side1 = side1;
@@ -37,8 +39,8 @@ public class Triangle {
      */
     private void calculateSquare() {
         double p = (side1 + side2 + side3) / 2;
-        square = Math.sqrt(p * (p - side1) * (p - side2) *
-                (p - side3));
+        square = Math.sqrt(
+                p * (p - side1) * (p - side2) * (p - side3));
     }
 
     public String getName() {
@@ -63,7 +65,8 @@ public class Triangle {
 
     @Override
     public String toString() {
-        return String.format("[Triangle %s]: %.2f cm^2", name, square);
+        return String.format(
+                "[Triangle %s]: %.2f cm^2", name, square);
     }
 
 }

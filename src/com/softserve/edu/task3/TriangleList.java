@@ -35,7 +35,7 @@ public class TriangleList {
             String[] data = ConsoleHandler.getUserInput().split(",");
             if (data.length != 4) {
                 System.out.println("Wrong input...Try again");
-            }else {
+            } else {
                 try {
                     addTriangle(createTriangle(data));
                 } catch (NumberFormatException e) {
@@ -63,17 +63,18 @@ public class TriangleList {
         triangles.add(triangle);
     }
 
-    public void sortTriangles(){
+    public void sortTriangles() {
         Collections.sort(triangles, new Comparator<Triangle>() {
             @Override
             public int compare(Triangle o1, Triangle o2) {
-               return Double.compare(o1.getSquare(), o2.getSquare());
+
+                return Double.compare(o1.getSquare(), o2.getSquare());
             }
         });
     }
 
-    public void printTriangles(){
-        for (Triangle triangle:triangles){
+    public void printTriangles() {
+        for (Triangle triangle : triangles) {
             System.out.println(triangle);
         }
     }

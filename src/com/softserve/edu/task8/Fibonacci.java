@@ -14,8 +14,8 @@ public class Fibonacci {
     public Fibonacci(String[] args) {
         from = new BigInteger(args[0]);
         to = new BigInteger(args[1]);
-        if (from.compareTo(BigInteger.ZERO) >= 0 && to.compareTo(BigInteger
-                .ZERO) == 1 && from.compareTo(to) <= 0) {
+        if (from.compareTo(BigInteger.ZERO) >= 0 && to.compareTo(
+                BigInteger.ZERO) == 1 && from.compareTo(to) <= 0) {
             F1 = new BigInteger("0");
             F2 = new BigInteger("1");
 
