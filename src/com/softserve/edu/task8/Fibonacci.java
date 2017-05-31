@@ -8,44 +8,31 @@ import java.math.BigInteger;
 public class Fibonacci {
     private BigInteger from;
     private BigInteger to;
-    private BigInteger F1 = new BigInteger("0");
+    private BigInteger F1;
     private BigInteger F2;
-    private boolean isNegative;
 
     public Fibonacci(String[] args) {
         from = new BigInteger(args[0]);
         to = new BigInteger(args[1]);
         if (from.compareTo(BigInteger.ZERO) >= 0 && to.compareTo(BigInteger
-                .ZERO) == 1) {
-
+                .ZERO) == 1 && from.compareTo(to) <= 0) {
+            F1 = new BigInteger("0");
             F2 = new BigInteger("1");
-            isNegative = false;
-            if (from.compareTo(to) > 0)
-                throw new IllegalArgumentException("Illegal range");
 
-        } else if (from.compareTo(BigInteger.ZERO) <= 0 && to.compareTo(BigInteger
-                .ZERO) == -1) {
-
-            if (from.compareTo(to) < 0)
-                throw new IllegalArgumentException("Illegal range");
-            F2 = new BigInteger("-1");
-            isNegative = true;
+        } else {
+            throw new IllegalArgumentException("Illegal range");
         }
-
-        throw new IllegalArgumentException("Illegal range");
     }
 
     public void printFibonacci() {
         while (true) {
-            if ((F1.compareTo(from) >= 0 && !isNegative)
-                    || (F1.compareTo(from) <= 0 && isNegative)) {
+            if (F1.compareTo(from) >= 0) {
                 System.out.println(F1 + " ");
             }
             BigInteger temp = F2;
             F2 = F2.add(F1);
             F1 = temp;
-            if ((F1.compareTo(to) == 1 && !isNegative)
-                    || (F1.compareTo(to) == -1 && isNegative)) {
+            if (F1.compareTo(to) == 1) {
                 break;
             }
         }

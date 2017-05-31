@@ -18,15 +18,19 @@ public class App {
         if (args.length == 1) {
             try {
                 process(Integer.parseInt(args[0]));
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Value must be integer...");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         } else {
             appHelp();
         }
     }
 
-    public static void process(int value){
+    public static void process(int value) {
+        if (value <= 0)
+            throw new IllegalArgumentException("Value must be positive");
         int res = 0;
         for (int j = 1; res < value; j++) {
             res = (int) Math.pow(j, 2);
