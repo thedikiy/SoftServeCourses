@@ -7,6 +7,12 @@ public class Envelope {
     private double width;
     private double height;
 
+    /**
+     * Creates an envelope object with:
+     *
+     * @param width
+     * @param height
+     */
     public Envelope(double width, double height) {
         if (width < 0 || height < 0 || Double.compare(width, 0) == 0
                 || Double.compare(height, 0) == 0)
@@ -23,6 +29,13 @@ public class Envelope {
         return height;
     }
 
+    /**
+     * Compares this. envelope with input one
+     * @param envelope
+     * @return  <code> 1 </code> if this. envelope is bigger
+     *          <code> -1 </code> if this. envelope is smaller
+     *          <code> 0 </code> other case
+     */
     public int compare(Envelope envelope) {
         if (envelope == null)
             throw new IllegalArgumentException("Object can't be null");

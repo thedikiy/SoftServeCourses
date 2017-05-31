@@ -10,6 +10,13 @@ public class Triangle {
     private double side3;
     private double square;
 
+    /**
+     * Creates Triangle with name and three sides
+     * @param name
+     * @param side1
+     * @param side2
+     * @param side3
+     */
     public Triangle(String name, double side1, double side2, double side3) {
         this.name = name;
         if (Double.compare(side1, 0) <= 0
@@ -25,6 +32,9 @@ public class Triangle {
         calculateSquare();
     }
 
+    /**
+     * Calculates Square of triangle
+     */
     private void calculateSquare() {
         double p = (side1 + side2 + side3) / 2;
         square = Math.sqrt(p * (p - side1) * (p - side2) *

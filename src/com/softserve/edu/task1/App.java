@@ -5,6 +5,9 @@ package com.softserve.edu.task1;
  */
 
 public class App {
+    /**
+     *  Shows use help.
+     */
     public static void appHelp() {
         System.out.println("Chess Board \n"
                 + "Use : \n"

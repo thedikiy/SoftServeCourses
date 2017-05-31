@@ -6,6 +6,9 @@ package com.softserve.edu.task2;
 public class App {
     public static ConsoleHandler handler = new ConsoleHandler();
 
+    /**
+     * Process user input
+     */
     public static void process() {
         double width;
         double height;
