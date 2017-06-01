@@ -4,7 +4,7 @@ package com.softserve.edu.task2;
  * Created by TDK on 30.05.2017.
  */
 public class App {
-    public static ConsoleHandler handler = new ConsoleHandler();
+    public static ConsoleHandler handler = new ConsoleHandler(System.in);
 
     /**
      * Process user input

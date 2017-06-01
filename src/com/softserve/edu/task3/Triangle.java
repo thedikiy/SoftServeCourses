@@ -43,6 +43,10 @@ public class Triangle {
                 p * (p - side1) * (p - side2) * (p - side3));
     }
 
+    /**
+     * Getter for name field
+     * @return
+     */
     public String getName() {
         return name;
     }

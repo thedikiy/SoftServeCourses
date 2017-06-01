@@ -8,14 +8,18 @@ public class App {
     /**
      *  Shows use help.
      */
-    public static void appHelp() {
+    private static void appHelp() {
         System.out.println("Chess Board \n"
                 + "Use : \n"
                 + "Enter board's width and length: App [width] [length] \n"
                 + "Values must be a positive integer");
     }
 
-    public static void main(String[] args) {
+    /**
+     * Runs program main program
+     * @param args args for Board's width and length
+     */
+    private void run(String[] args){
         if (args.length == 2) {
             try {
                 int width = Integer.parseInt(args[0]);
@@ -29,5 +33,13 @@ public class App {
         } else {
             appHelp();
         }
+    }
+
+    /**
+     * Main method
+     * @param args input parameters
+     */
+    public static void main(String[] args) {
+        new App().run(args);
     }
 }

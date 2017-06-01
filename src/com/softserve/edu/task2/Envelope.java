@@ -21,10 +21,18 @@ public class Envelope {
         this.height = height;
     }
 
+    /**
+     * Getter for width parameter
+     * @return  width of envelope
+     */
     public double getWidth() {
         return width;
     }
 
+    /**
+     * Getter for height parameter
+     * @return  height of envelope
+     */
     public double getHeight() {
         return height;
     }
@@ -40,12 +48,26 @@ public class Envelope {
     public int compare(Envelope envelope) {
         if (envelope == null)
             throw new IllegalArgumentException("Object can't be null");
-        if (this.getWidth() > envelope.getWidth()
-                && this.getHeight() > envelope.getHeight())
+
+        double minSide1 = this.getMinSide();
+        double minSide2 = envelope.getMinSide();
+        double maxSide1 = this.getMaxSide();
+        double maxSide2 = envelope.getMaxSide();
+
+        if (maxSide1 > maxSide2
+                && minSide1 > minSide2)
             return 1;
-        if (this.getWidth() < envelope.getWidth()
-                && this.getHeight() < envelope.getHeight())
+        if (maxSide1 < maxSide2
+                && minSide1 < minSide2)
             return -1;
         return 0;
+    }
+
+    private double getMinSide(){
+        return getWidth() > getHeight() ? getHeight() : getWidth();
+    }
+
+    private double getMaxSide(){
+        return getWidth() < getHeight() ? getHeight() : getWidth();
     }
 }

@@ -1,5 +1,6 @@
 package com.softserve.edu.task2;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -11,12 +12,15 @@ public class ConsoleHandler {
     /**
      * Creates an object to work with console.
      */
-    public ConsoleHandler() {
-        scanner = new Scanner(System.in);
+    public ConsoleHandler(InputStream in) {
+        if (in == null)
+            throw new IllegalArgumentException("Input Stream can't be null");
+        scanner = new Scanner(in);
     }
 
     /**
      * Prints input text in System.out
+     *
      * @param text
      */
     public void print(String text) {
@@ -25,7 +29,8 @@ public class ConsoleHandler {
 
     /**
      * Parses a line from System.in
-     * @return  Double value of parsed line
+     *
+     * @return Double value of parsed line
      */
     public double readDouble() {
         return Double.parseDouble(scanner.nextLine());
@@ -33,6 +38,7 @@ public class ConsoleHandler {
 
     /**
      * Reads next console line
+     *
      * @return
      */
     public String readConsole() {
