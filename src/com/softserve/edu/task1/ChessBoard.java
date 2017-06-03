@@ -1,9 +1,8 @@
 package com.softserve.edu.task1;
 
-import java.util.Arrays;
 
 /**
- * Created by TDK on 30.05.2017.
+ * Represents chessboard.
  */
 
 public class ChessBoard {
@@ -13,8 +12,8 @@ public class ChessBoard {
     /**
      * Creates ChessBoard object.
      *
-     * @param width
-     * @param length
+     * @param width  width of chessboard
+     * @param length length of chessboard
      */
     public ChessBoard(int width, int length) {
         if (width > 0 && length > 0) {
@@ -26,7 +25,7 @@ public class ChessBoard {
     }
 
     /**
-     * Setter for width param
+     * Setter for width param.
      *
      * @param width - width of chessboard
      */
@@ -39,7 +38,7 @@ public class ChessBoard {
     }
 
     /**
-     * Setter for length param
+     * Setter for length param.
      *
      * @param length - length of chessboard
      */
@@ -52,7 +51,7 @@ public class ChessBoard {
     }
 
     /**
-     * Width getter
+     * Width getter.
      *
      * @return width of board
      */
@@ -61,7 +60,7 @@ public class ChessBoard {
     }
 
     /**
-     * Length's getter
+     * Length's getter.
      *
      * @return length of the board
      */
@@ -71,7 +70,7 @@ public class ChessBoard {
 
 
     /**
-     *  Creates and draws board
+     * Creates and draws board.
      */
     public void drawBoard() {
         for (int i = 0; i < length; i++) {

@@ -1,15 +1,15 @@
 package com.softserve.edu.task2;
 
 /**
- * Created by TDK on 30.05.2017.
+ * Task 2.
  */
 public class App {
-    public static ConsoleHandler handler = new ConsoleHandler(System.in);
+    private static ConsoleHandler handler = new ConsoleHandler(System.in);
 
     /**
-     * Process user input
+     * Process user input.
      */
-    public static void process() {
+    private void process() {
         double width;
         double height;
         handler.print("Enter first envelope's width");
@@ -25,18 +25,23 @@ public class App {
         if (firstEnv.compare(secondEnv) != 0) {
             handler.print("Sure you can put one envelope in another");
         } else {
-            handler.print("Excuse me, you can't put one envelope in " +
-                    "another");
+            handler.print("Excuse me, you can't put one envelope in "
+                    + "another");
         }
 
 
     }
 
+    /**
+     * Main Method.
+     * Creates new App and handles on exceptions that are produced by it.
+     * @param args - Console arguments
+     */
     public static void main(String[] args) {
         String answer = "";
         do {
             try {
-                process();
+                new App().process();
             } catch (NumberFormatException e) {
                 handler.print("Value must be double");
             } catch (IllegalArgumentException e) {

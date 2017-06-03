@@ -1,12 +1,13 @@
 package com.softserve.edu.task1;
 
 /**
- * Created by TDK on 30.05.2017.
+ * App contains main method for task 1
+ * And handles on user input.
  */
 
 public class App {
     /**
-     *  Shows use help.
+     * Shows use help.
      */
     private static void appHelp() {
         System.out.println("Chess Board \n"
@@ -17,9 +18,10 @@ public class App {
 
     /**
      * Runs program main program
+     *
      * @param args args for Board's width and length
      */
-    private void run(String[] args){
+    private void run(String[] args) {
         if (args.length == 2) {
             try {
                 int width = Integer.parseInt(args[0]);
@@ -36,7 +38,8 @@ public class App {
     }
 
     /**
-     * Main method
+     * Main method.
+     *
      * @param args input parameters
      */
     public static void main(String[] args) {

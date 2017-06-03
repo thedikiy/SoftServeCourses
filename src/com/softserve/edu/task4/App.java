@@ -1,49 +1,59 @@
 package com.softserve.edu.task4;
 
+
 /**
- * Created by TDK on 24.05.2017.
- */
-/*
-    4. Файловый парсер
-
-    Нужно написать программу, которая будет иметь два режима:
-
-    1. Считать количество вхождений строки в текстовом файле.
-
-    2. Делать замену строки на другую в указанном файле
-
-    Программа должна принимать аргументы на вход при запуске:
-
-    1. <путь к файлу> <строка для подсчёта>
-
-    2. <путь к файлу> <строка для поиска> <строка для замены>
+ * File Parser application's Main class.
  */
 public class App {
-    /**
-     * Shows USE help
-     */
+    private static final int FILE_PATH_ARGUMENT_NUMBER = 0;
+    private static final int FIND_STRING_ARGUMENT_NUMBER = 1;
+    private static final int SWAP_STRING_ARGUMENT_NUMBER = 2;
 
+    /**
+     * Shows USE help.
+     */
     public static void appHelp() {
-        System.out.println("FILE PARSER \n" +
-                "Use : \n" +
-                "Count string entries: App [path] [string] \n" +
-                "Swap string: App [path] [findString] [replaceString]");
+        System.out.println("FILE PARSER \n"
+                + "Use : \n"
+                + "Count string entries: App [path] [string] \n"
+                + "Swap string: App [path] [findString] [replaceString]");
     }
 
-    public static void main(String[] args) {
-        Parser parser = null;
-        if (args.length > 1) {
-            parser = new FileParser(args[0]);
+    /**
+     * Handles on user input.
+     *
+     * @param args User input parameters
+     */
+    public void run(String[] args) {
+        try {
+            Parser parser = new SHParser(new FileStreamHandler(
+                    args[FILE_PATH_ARGUMENT_NUMBER]));
+            switch (args.length) {
+                case 2:
+                    System.out.println(parser.countEntries(
+                            args[FIND_STRING_ARGUMENT_NUMBER])
+                            + "matches found");
+                    break;
+                case 3:
+                    parser.swapString(
+                            args[FIND_STRING_ARGUMENT_NUMBER],
+                            args[SWAP_STRING_ARGUMENT_NUMBER]);
+                    break;
+                default:
+                    appHelp();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
-        switch (args.length) {
-            case 2:
-                parser.countEntries(args[1]);
-                break;
-            case 3:
-                parser.swapString(args[1], args[2]);
-                break;
-            default:
-                appHelp();
+    }
+
+    /**
+     * Main method.
+     * @param args console input
+     */
+    public static void main(String[] args) {
+        if (args.length > 1) {
+            new App().run(args);
         }
     }
 }

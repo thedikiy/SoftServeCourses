@@ -1,50 +1,29 @@
 package com.softserve.edu.task4;
 
 import java.io.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
- * Created by TDK on 24.05.2017.
+ * Handles on file stream operations:
+ * Reads from file or writes to file.
  */
-public class FileParser implements Parser {
+public class FileStreamHandler implements StreamHandler {
     private File file;
 
     /**
-     * Creates new file parser with input path
+     * Creates file stream handler taht can read and write to @code path file.
      *
-     * @param path path to file to parse
+     * @param path path to file for reading and writing
      */
-
-    public FileParser(String path) {
+    public FileStreamHandler(String path) {
         file = new File(path);
     }
 
     /**
-     * Counts how many entries input string has in current file
+     * Writes data in @code file.
      *
-     * @param findStr string which entries to count
+     * @param text string to write
      */
-
-    public void countEntries(String findStr) {
-        Pattern pattern = Pattern.compile(findStr);
-        Matcher matcher = pattern.matcher(readFile());
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
-        System.out.println(count + " matches found");
-    }
-
-    /**
-     * Swaps string in file with another one
-     *
-     * @param findStr string to find in file
-     * @param swapStr string to replace
-     */
-
-    public void swapString(String findStr, String swapStr) {
-        String text = readFile().replaceAll(findStr, swapStr);
+    public void writeToStream(String text) {
         try {
             PrintWriter fileWriter = new PrintWriter(file.getAbsoluteFile());
             try {
@@ -57,7 +36,12 @@ public class FileParser implements Parser {
         }
     }
 
-    private String readFile() {
+    /**
+     * Reads whole @code file.
+     *
+     * @return String read from file
+     */
+    public String readStream() {
         BufferedReader reader = null;
         String text = "";
         try {
