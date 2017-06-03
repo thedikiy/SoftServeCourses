@@ -20,7 +20,8 @@ public class TicketCounterTest {
                 .thenReturn(true);
 
         int count = counter.count(algorithmMocked);
-
+        Mockito.verify(algorithmMocked, Mockito.times(
+                1000000)).isLuckyTicket(Mockito.anyObject());
         Assert.assertEquals(count,1000000);
     }
 }
