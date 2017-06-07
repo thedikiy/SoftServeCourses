@@ -12,12 +12,17 @@ public class App {
 
     /**
      * Main method, creates triangle list and then sort and print it.
+     *
      * @param args console arguments
      */
-    public static void main(String[] args)  {
-        TriangleList list = new TriangleList();
-        list.fillTriangleList();
-        list.sortTriangles();
-        list.printTriangles();
+    public static void main(String[] args) {
+        try {
+            TriangleList list = new TriangleList(System.in);
+            list.fillTriangleList();
+            list.sortTriangles();
+            list.printTriangles();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

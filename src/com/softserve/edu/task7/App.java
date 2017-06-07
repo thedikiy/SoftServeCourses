@@ -1,40 +1,48 @@
 package com.softserve.edu.task7;
 
 /**
- * Created by TDK on 29.05.2017.
+ * Task 7.
  */
 public class App {
     /**
-     * Shows USE help
+     * Shows USE help.
      */
     public static void appHelp() {
-        System.out.println("Number series \n" +
-                "Use : \n" +
-                "Builds series of number's squares that are less " +
-                "than [value]: App [value] \n");
+        System.out.println("Number series \n"
+                + "Use : \n"
+                + "Builds series of number's squares that are less "
+                + "than [value]: App [value] \n");
     }
 
+    /**
+     * Main method.
+     *
+     * @param args program arguments
+     */
     public static void main(String[] args) {
         if (args.length == 1) {
-            try {
-                process(Integer.parseInt(args[0]));
-            } catch (NumberFormatException e) {
-                System.out.println("Value must be integer...");
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
+            new App().process(args[0]);
         } else {
             appHelp();
         }
     }
 
-    public static void process(int value) {
-        if (value <= 0)
-            throw new IllegalArgumentException("Value must be positive");
-        int res = 0;
-        for (int j = 1; res < value; j++) {
-            res = (int) Math.pow(j, 2);
-            System.out.println(res);
+    /**
+     * Creates a new series with natural numbers, squares of each are less
+     * then <code>value</code>  and prints it.
+     *
+     * @param value boundary value
+     */
+    public void process(String value) {
+        try {
+            int boundary = Integer.parseInt(value);
+            NaturalNumberSeries series = new NaturalNumberSeries();
+            series.fillListWithBoundary(boundary);
+            System.out.println(series);
+        } catch (NumberFormatException e) {
+            System.out.println("Value must be integer...");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

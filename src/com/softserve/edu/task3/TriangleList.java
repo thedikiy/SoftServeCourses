@@ -1,5 +1,6 @@
 package com.softserve.edu.task3;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -14,26 +15,31 @@ public class TriangleList {
     private static final int FIRST_SIDE = 1;
     private static final int SECOND_SIDE = 2;
     private static final int THIRD_SIDE = 3;
+    private ConsoleHandler handler;
 
     /**
      * Handles on console user input.
      */
-    private static class ConsoleHandler {
-        private static Scanner reader = new Scanner(System.in);
+    private class ConsoleHandler {
+        private Scanner reader;
+
+        public ConsoleHandler(InputStream in) {
+            reader = new Scanner(in);
+        }
 
         /**
          * Gets user input.
          *
          * @return user input
          */
-        private static String getUserInput() {
+        private String getUserInput() {
             return reader.nextLine();
         }
 
         /**
          * Application's help.
          */
-        private static void inputHelp() {
+        private void inputHelp() {
             System.out.println("Triangle Square Sort \n"
                     + "Use : \n"
                     + "Sorts triangles by square: \n"
@@ -42,19 +48,37 @@ public class TriangleList {
     }
 
     /**
+     * Getter for list.
+     *
+     * @return list of triangles
+     */
+    public ArrayList<Triangle> getTriangles() {
+        return triangles;
+    }
+
+    public void setTriangles(ArrayList<Triangle> triangles) {
+        this.triangles = triangles;
+    }
+
+    /**
      * Creates new Triangle List.
      */
-    public TriangleList() {
+    public TriangleList(InputStream inputStream) {
         this.triangles = new ArrayList<>();
+        if (inputStream == null) {
+            throw new IllegalArgumentException("Input stream can not be null");
+        }
+
+        handler = new ConsoleHandler(inputStream);
     }
 
     /**
      * Fills list with triangles according to user input.
      */
     public void fillTriangleList() {
-        ConsoleHandler.inputHelp();
+        handler.inputHelp();
         while (true) {
-            String[] data = ConsoleHandler.getUserInput().split(",");
+            String[] data = handler.getUserInput().split(",");
             if (data.length != PARAMETER_COUNT) {
                 System.out.println("Wrong input...Try again");
             } else {
@@ -67,7 +91,7 @@ public class TriangleList {
                 }
             }
             System.out.println("Do you want to continue?(y/yes) ");
-            String input = ConsoleHandler.getUserInput().trim();
+            String input = handler.getUserInput().trim();
             if (!(input.equalsIgnoreCase("y")
                     || input.equalsIgnoreCase("yes"))) {
                 break;
@@ -90,6 +114,7 @@ public class TriangleList {
 
     /**
      * Adds triangle into triangle list.
+     *
      * @param triangle triangle that has to be added
      */
     public void addTriangle(Triangle triangle) {

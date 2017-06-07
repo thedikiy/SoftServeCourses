@@ -2,33 +2,44 @@ package com.softserve.edu.task6;
 
 
 /**
- * Created by TDK on 24.05.2017.
+ * Task 6.
  */
 
 public class App {
     /**
-     * Shows USE help
+     * Shows USE help.
      */
     public static void appHelp() {
-        System.out.println("Lucky Tickets \n" +
-                "Use : \n" +
-                "Enter file with algorithm ID: App [path] \n");
+        System.out.println("Lucky Tickets \n"
+                + "Use : \n"
+                + "Enter file with algorithm TicketAlgorithmType: App [path] \n");
     }
 
+    /**
+     * Prints to stdout the number of tickets that with algorithm that was
+     * specified by user.
+     *
+     * @param path path to file with algorithm name
+     */
+    public void run(String path) {
+        try {
+            TicketAlgorithmType type = new FileReader(path).getAlgorithmID();
+            TicketAlgorithm ticketAlgorithm
+                    = AlgorithmFactory.getAlgorithmById(type);
+            System.out.println(new TicketCounter().count(ticketAlgorithm));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
+    /**
+     * Main method.
+     *
+     * @param args program args
+     */
     public static void main(String[] args) {
         if (args.length == 1) {
-            ID id = new FileReader(args[0]).getAlgorithmID();
-            switch (id) {
-                case MOSKOW:
-                    System.out.println(new TicketCounter().count(new Moskow()));
-                    break;
-                case PITER:
-                    System.out.println(new TicketCounter().count(new Piter()));
-                    break;
-                case UNKNOWN:
-                    System.out.println("Wrong file input");
-            }
+            new App().run(args[0]);
         } else {
             appHelp();
         }
