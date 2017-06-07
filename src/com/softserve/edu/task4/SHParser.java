@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * Parser that works with StreamHandler object.
  */
 public class SHParser implements Parser {
-    StreamHandler streamHandler;
+    private StreamHandler streamHandler;
 
     /**
      * Creates stream handler parser.

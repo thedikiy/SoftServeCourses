@@ -14,6 +14,7 @@ public class ConsoleHandler {
 
     /**
      * Creates an object to work with console.
+     * @param in Stream to read from
      */
     public ConsoleHandler(InputStream in) {
         if (in == null) {

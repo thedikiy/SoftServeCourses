@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task6;
+package com.softserve.edu.task6;
 
 import com.softserve.edu.task6.FileReader;
 import com.softserve.edu.task6.TicketAlgorithmType;

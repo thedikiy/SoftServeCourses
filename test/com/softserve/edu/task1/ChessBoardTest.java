@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task1;
+package com.softserve.edu.task1;
 
 import com.softserve.edu.task1.ChessBoard;
 import org.testng.Assert;
@@ -48,7 +48,8 @@ public class ChessBoardTest {
     @Test
     public void createBoard_BoardCreated() {
         // Arrange
-        String expected = "* * * * " + "\r\n"
+        String expected
+                = "* * * * " + "\r\n"
                 + " * * * *" + "\r\n"
                 + "* * * * " + "\r\n"
                 + " * * * *" + "\r\n";

@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task7;
+package com.softserve.edu.task7;
 
 import com.softserve.edu.task7.NaturalNumberSeries;
 import org.testng.Assert;

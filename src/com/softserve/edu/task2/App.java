@@ -38,7 +38,7 @@ public class App {
      * @param args - Console arguments
      */
     public static void main(String[] args) {
-        String answer = "";
+        String answer;
         do {
             try {
                 new App().process();

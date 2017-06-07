@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task4;
+package com.softserve.edu.task4;
 
 import com.softserve.edu.task4.SHParser;
 import com.softserve.edu.task4.StreamHandler;
@@ -21,7 +21,7 @@ public class SHParserTest {
         parser.countEntries("test");
 
         //Assert
-        Mockito.verify(handler, Mockito.times(1)).readStream();
+        Mockito.verify(handler).readStream();
     }
 
     @Test
@@ -50,7 +50,7 @@ public class SHParserTest {
         parser.swapString("test","test2");
 
         //Assert
-        Mockito.verify(handler, Mockito.times(1)).writeToStream(Mockito.anyString());
+        Mockito.verify(handler).writeToStream(Mockito.anyString());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class SHParserTest {
         parser.swapString("test","test2");
 
         //Assert
-        Mockito.verify(handler, Mockito.times(1)).readStream();
+        Mockito.verify(handler).readStream();
     }
 
     @Test
@@ -105,7 +105,7 @@ public class SHParserTest {
         SHParser parser = new SHParser(handler);
 
         //Act
-        parser.swapString(null,"test");
+        parser.swapString(null, "test");
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)

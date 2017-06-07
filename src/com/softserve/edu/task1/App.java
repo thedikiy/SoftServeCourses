@@ -17,7 +17,7 @@ public class App {
     }
 
     /**
-     * Runs program main program
+     * Runs program main program.
      *
      * @param args args for Board's width and length
      */

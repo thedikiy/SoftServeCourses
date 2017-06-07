@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task3;
+package com.softserve.edu.task3;
 
 import com.softserve.edu.task3.Triangle;
 import org.testng.Assert;
@@ -22,13 +22,13 @@ public class TriangleTest {
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
-    public void getSquare_NegativeSide_ExceptionThrown() {
+    public void createObject_NegativeSide_ExceptionThrown() {
         Triangle triangle = new Triangle("test", -1.5, 15.6, 1.7);
     }
 
 
     @Test(expectedExceptions = IllegalArgumentException.class)
-    public void getSquare_OneSideIsBiggerThanOthers_ExceptionThrown() {
+    public void createObject_OneSideIsBiggerThanOthers_ExceptionThrown() {
         Triangle triangle = new Triangle("test", 100.5, 15.6, 1.7);
     }
 }

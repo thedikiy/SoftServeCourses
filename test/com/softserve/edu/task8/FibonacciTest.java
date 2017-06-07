@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task8;
+package com.softserve.edu.task8;
 
 import com.softserve.edu.task8.Fibonacci;
 import org.testng.Assert;

@@ -1,4 +1,4 @@
-package test.com.softserve.edu.task2;
+package com.softserve.edu.task2;
 
 import com.softserve.edu.task2.ConsoleHandler;
 import org.testng.Assert;
