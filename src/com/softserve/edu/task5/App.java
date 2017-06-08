@@ -13,7 +13,12 @@ public class App {
 
     public static void main(String[] args) {
         if (args.length == 1) {
-            new SymbolicNumber().getSymbolicNumber(args[0]);
+            try {
+                System.out.println(new SymbolicNumberConverter()
+                                .getSymbolicNumber(args[0]));
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         } else {
             appHelp();
         }
